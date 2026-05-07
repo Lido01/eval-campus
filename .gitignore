@@ -1,0 +1,69 @@
+# ======================
+# GENERAL
+# ======================
+.env
+.env.*
+*.log
+*.sqlite3
+db.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ======================
+# PYTHON / DJANGO
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend.venv/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Django stuff
+media/
+staticfiles/
+
+# ======================
+# NODE / REACT / VITE
+# ======================
+node_modules/
+dist/
+build/
+
+# Vite
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# REACT NATIVE / EXPO
+# ======================
+.expo/
+.expo-shared/
+
+# Android / iOS builds
+android/
+ios/
+
+# Expo cache
+*.expo*
+
+# ======================
+# IDEs
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# TEST / COVERAGE
+# ======================
+coverage/
