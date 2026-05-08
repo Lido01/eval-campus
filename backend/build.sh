@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
-    # exit on error
-    set -o errexit
+# exit on error
+set -o errexit
 
-    # Install dependencies
-    pip install -r requirements.txt
+# 1. Install dependencies
+pip install -r requirements.txt
 
-    # Convert static files (CSS/JS) for production
-    python manage.py collectstatic --no-input
+# 2. Generate migration files for your apps
+# This creates the "instructions" for the database tables
+python manage.py makemigrations accounts
+python manage.py makemigrations
 
-    # Apply database migrations
-    python manage.py migrate
-    ```
+# 3. Apply database migrations
+# This actually builds the tables in PostgreSQL
+python manage.py migrate
 
----
-
-### 3. Make `build.sh` Executable (Very Important)
-Render needs "permission" to run the script you just created. If you are on a Mac or Linux terminal, run this command:
-```bash
-chmod +x build.sh
+# 4. Convert static files for production
+python manage.py collectstatic --no-input
