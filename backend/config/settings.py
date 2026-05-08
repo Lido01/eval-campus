@@ -9,7 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Render uses environment variables. If they aren't found, it falls back to local values.
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-p!cgg*kn59+6ga9b14^2if$u(^@6jns45j#n0)=(6cdn8((2-6')
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+# DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
+# 1. Force DEBUG to True for just one deploy to catch the error
+DEBUG = True
 
 # Allowed hosts for Render and local development
 ALLOWED_HOSTS = ['*']
@@ -115,4 +118,6 @@ CORS_ALLOW_CREDENTIALS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# 2. Add these to catch common 'Allauth' or 'Rest-Auth' registration crashes
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Disable verification requirement temporarily
